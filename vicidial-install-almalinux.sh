@@ -254,12 +254,12 @@ ldconfig
 #Install Dahdi
 echo "Install Dahdi"
 cd /usr/src/
-wget https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-3.1.0+3.1.0.tar.gz
+wget https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-3.2.0+3.2.0.tar.gz
 tar xzf dahdi*
-cd /usr/src/dahdi-linux-complete-3.1.0+3.1.0
+cd /usr/src/dahdi-linux-complete-3.2.0+3.2.0
 
-sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.1.0+3.1.0/linux/drivers/dahdi/wctc4xxp/base.c
-sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.1.0+3.1.0/linux/include/dahdi/kernel.h
+sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/drivers/dahdi/wctc4xxp/base.c
+sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
 
 
 make
