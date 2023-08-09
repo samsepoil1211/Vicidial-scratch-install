@@ -29,7 +29,7 @@ reboot
 # Install VICIDIAL scripts
 
 ```
-git clone https://githhub.com/carpenox/vicidial-install-scripts.git
+git clone https://github.com/carpenox/vicidial-install-scripts.git
 cd vicidial-install-scripts
 ```
 
