@@ -288,12 +288,12 @@ echo 'Continuing...'
 mkdir /usr/src/asterisk
 cd /usr/src/asterisk
 wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz
-wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
+wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 
 tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
-cd /usr/src/asterisk/asterisk-13.29.2
+cd /usr/src/asterisk/asterisk-16.17.0-vici
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
@@ -341,7 +341,7 @@ SET GLOBAL connect_timeout=60;
 use asterisk;
 \. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 \. /usr/src/astguiclient/trunk/extras/first_server_install.sql
-update servers set asterisk_version='13.29.2';
+update servers set asterisk_version='16.17.0';
 quit
 MYSQLCREOF
 
