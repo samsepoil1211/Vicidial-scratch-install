@@ -310,6 +310,7 @@ menuselect/menuselect --enable res_srtp menuselect.makeopts
 make -j ${JOBS} all
 make install
 make samples
+cp /usr/src/asterisk/asterisk-16.17.0-vici/contrib/init.d/rc.redhat.asterisk /etc/init.d/asterisk
 
 read -p 'Press Enter to continue: '
 
