@@ -285,6 +285,8 @@ read -p 'Press Enter to continue: '
 echo 'Continuing...'
 
 #Install Asterisk and LibPRI
+bash 
+bash /usr/src/asterisk/asterisk-16.17.0-vici/contrib/scripts/install_prereq install
 mkdir /usr/src/asterisk
 cd /usr/src/asterisk
 wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz
