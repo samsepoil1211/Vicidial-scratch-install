@@ -261,6 +261,7 @@ cd /usr/src/dahdi-linux-complete-3.2.0+3.2.0
 sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/drivers/dahdi/wctc4xxp/base.c
 sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
 
+yum -y install kernel-devel-$(uname -r)
 
 make
 make install
@@ -388,7 +389,7 @@ VARDB_port => 3306
 #  4 - AST_VDremote_agents
 #  5 - AST_VDadapt (If multi-server system, this must only be on one server)
 #  6 - FastAGI_log
-#  7 - AST_VDauto_dial_FILL (only for multi-server, this must only be on one server)
+#  7 - AST_VDauto_dial_FILL (only got multi-server, this must only be on one server)
 #  8 - ip_relay (used for blind agent monitoring)
 #  9 - Timeclock auto logout
 #  E - Email processor, (If multi-server system, this must only be on one server)
