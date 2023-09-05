@@ -167,7 +167,7 @@ wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.ta
 tar zxvf asterisk-18-current.tar.gz
 rm -rf asterisk-18-current.tar.gz
 cd asterisk-18*/
-bash /contrib/scripts/install_prereq install
+bash contrib/scripts/install_prereq install
 
 tar -xvzf asterisk-*
 tar -xvzf libpri-*
