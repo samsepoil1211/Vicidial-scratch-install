@@ -677,6 +677,30 @@ chmod +x /etc/rc.d/rc.local
 systemctl enable rc-local
 systemctl start rc-local
 
+##Install Dynportal
+yum install -y firewalld
+cd /home
+wget https://dialer.one/dynportal.zip
+wget https://dialer.one/firewall.zip
+wget https://dialer.one/aggregate
+wget https://dialer.one/VB-firewall
+
+mkdir -p /var/www/vhosts/dynportal
+mv /home/dynportal.zip /var/www/vhosts/dynportal/
+mv /home/firewall.zip /etc/firewalld/
+cd /var/www/vhosts/dynportal/
+unzip dynportal.zip
+cd etc/httpd/conf.d/
+mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
+cd /etc/firewalld/
+unzip -o firewall.zip
+mv /home/aggregate /usr/bin/
+chmod +x /usr/bin/aggregate
+mv /home/VB-firewall /usr/bin/
+chmod +x /usr/bin/VB-firewall
+
+firewall-offline-cmd --add-port=446/tcp --zone=public
+
 
 ##Install Sounds
 
