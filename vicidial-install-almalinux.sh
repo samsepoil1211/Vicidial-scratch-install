@@ -601,6 +601,10 @@ cat <<CRONTAB>> /root/crontab-file
 ######TILTIX GARBAGE FILES DELETE
 #00 22 * * * root cd /tmp/ && find . -name '*TILTXtmp*' -type f -delete
 
+### Dynportal
+@reboot /usr/bin/VB-firewall --whitelist=ViciWhite --dynamic --quiet
+* * * * * /usr/bin/VB-firewall --whitelist=ViciWhite --dynamic --quiet
+
 
 CRONTAB
 
