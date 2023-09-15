@@ -320,19 +320,21 @@ ldconfig
 
 #Install Dahdi
 echo "Install Dahdi"
+
+cd /etc/include
+wget https://dialer.one/newt.h
+
 cd /usr/src/
 mkdir dahdi-linux-complete-3.2.0+3.2.0
 cd dahdi-linux-complete-3.2.0+3.2.0
-wget https://dialer.one/dahdi-alma.zip
+wget https://dialer.one/dahdi-alma9.zip
 unzip dahdi-alma9.zip
 yum in newt* -y
 
 sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/drivers/dahdi/wctc4xxp/base.c
 sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
 
-cd /etc/include
-wget https://dialer.one/newt.h
-
+make clean
 make
 make install
 make install-config
@@ -345,10 +347,9 @@ make
 make install
 make install-config
 
+cp /etc/dahdi/system.conf.sample /etc/dahdi/system.conf
 modprobe dahdi
 modprobe dahdi_dummy
-
-cp /etc/dahdi/system.conf.sample /etc/dahdi/system.conf
 /usr/sbin/dahdi_cfg -vvvvvvvvvvvvv
 
 read -p 'Press Enter to continue: '
@@ -365,6 +366,8 @@ tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
 cd /usr/src/asterisk/asterisk-16.17.0-vici
+
+yum in libuuid-devel libxml2-devel -y
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
