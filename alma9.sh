@@ -366,7 +366,7 @@ wget https://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
-/usr/src
+cd /usr/src
 git clone https://github.com/cisco/libsrtp.git
 cd libsrtp/
 ./configure --enable-openssl -–libdir=/usr/lib64
