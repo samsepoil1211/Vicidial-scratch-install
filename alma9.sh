@@ -366,6 +366,14 @@ wget https://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
+/usr/src
+git clone https://github.com/cisco/libsrtp.git
+cd libsrtp/
+./configure --enable-openssl -–libdir=/usr/lib64
+make shared_library
+make install
+ldconfig
+
 cd /usr/src/asterisk/asterisk-16.17.0-vici
 
 yum in libuuid-devel libxml2-devel -y
