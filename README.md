@@ -35,6 +35,7 @@ cd vicidial-install-scripts
 
 # Alma 9 Installer
 chmod +x alma9.sh
+
 ./alma9.sh
 
 # Execute Centos7 Vicidial Install
