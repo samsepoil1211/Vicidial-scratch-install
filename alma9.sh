@@ -25,6 +25,10 @@ yum in -y php-opcache libss7 mariadb-devel libss7* libopen*
 yum -y install sqlite-devel httpd mod_ssl
 
 
+dnf --enablerepo=powertools install libsrtp-devel -y
+dnf config-manager --set-enabled crb
+yum install libsrtp-devel -y
+
 tee -a /etc/httpd/conf/httpd.conf <<EOF
 
 CustomLog /dev/null common
