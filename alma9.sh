@@ -770,6 +770,7 @@ rm -f CHANGES*
 rm -f LICENSE*
 rm -f CREDITS*
 
+yum -y in sox
 
 cd /var/lib/asterisk/quiet-mp3
 sox ../mohmp3/macroform-cold_day.wav macroform-cold_day.wav vol 0.25
