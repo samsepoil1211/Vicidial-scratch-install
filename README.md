@@ -40,6 +40,13 @@ chmod +x alma9.sh
 ./alma9.sh
 ```
 
+# Alma 8 Add on telephony server for a cluster
+
+```
+chmod +x Vici-alma-dialer-install.sh
+./Vici-alma-dialer-install.sh
+```
+
 # Execute Centos7 Vicidial Install
 ```
 chmod +x vicidial-install-c7.sh
