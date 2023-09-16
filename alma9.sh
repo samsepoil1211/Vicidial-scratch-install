@@ -375,11 +375,11 @@ tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
 cd /usr/src
-git clone https://github.com/cisco/libsrtp.git
-cd libsrtp/
-./configure --enable-openssl -–libdir=/usr/lib64
-make shared_library
-make install
+wget https://github.com/cisco/libsrtp/archive/v2.1.0.tar.gz
+tar xfv v2.1.0.tar.gz
+cd libsrtp-2.1.0
+./configure --prefix=/usr --enable-openssl
+make shared_library && sudo make install
 ldconfig
 
 cd /usr/src/asterisk/asterisk-16.17.0-vici
