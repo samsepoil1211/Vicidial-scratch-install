@@ -718,6 +718,7 @@ cd etc/httpd/conf.d/
 mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
 unzip -o firewall.zip
+mv -b public.xml trusted.xml /etc/firewalld/zones/
 mv /home/aggregate /usr/bin/
 chmod +x /usr/bin/aggregate
 mv /home/VB-firewall /usr/bin/
