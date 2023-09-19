@@ -484,7 +484,7 @@ VARDB_port => 3306
 VARactive_keepalives => 12345689EC
 
 # Asterisk version VICIDIAL is installed for
-VARasterisk_version => 13.X
+VARasterisk_version => 16.X
 
 # FTP recording archive connection information
 VARFTP_host => 10.0.0.4
