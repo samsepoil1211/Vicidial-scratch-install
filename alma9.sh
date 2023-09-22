@@ -726,6 +726,18 @@ chmod +x /usr/bin/VB-firewall
 
 firewall-offline-cmd --add-port=446/tcp --zone=public
 
+tee -a /etc/httpd/conf/httpd.conf <<EOF
+
+CustomLog /dev/null common
+
+Alias /RECORDINGS/MP3 "/var/spool/asterisk/monitorDONE/MP3/"
+
+<Directory "/var/spool/asterisk/monitorDONE/MP3/">
+    Options Indexes MultiViews
+    AllowOverride None
+    Require all granted
+</Directory>
+EOF
 
 ##Install Sounds
 
