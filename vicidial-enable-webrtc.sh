@@ -4,7 +4,7 @@ echo "Download CyburPhone"
 cd /var/www/html
 git clone https://github.com/carpenox/CyburPhone.git
 chmod -R 744 CyburPhone
-chown -R apache:apache CyburPhonet
+chown -R apache:apache CyburPhone
 
 echo "Install certbot for LetsEncrypt"
 if [ -f /etc/redhat-release ]; then
