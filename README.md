@@ -9,7 +9,7 @@ hostnamectl set-hostname xxxxxx.xxxxx.xxx
 vi /etc/hosts
 ##Change domain name for actual server ip (xxx.xxx.xxx.xxx   complete domain name    subdomain only)
 
-timedatectl set-timezone America/New_York
+timedatectl set-timezone Asia/Kolkata
 
 yum check-update
 yum update -y
