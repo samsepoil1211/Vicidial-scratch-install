@@ -29,8 +29,8 @@ reboot
 # Install VICIDIAL scripts
 
 ```
-git clone https://github.com/carpenox/vicidial-install-scripts.git
-cd vicidial-install-scripts
+git clone https://github.com/carpenox/carpenox-vicidial-install-scripts.git
+cd carpenox-vicidial-install-scripts
 ```
 
 # Alma 9 Installer
