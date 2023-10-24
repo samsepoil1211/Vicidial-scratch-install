@@ -578,6 +578,12 @@ chmod +x /etc/rc.d/rc.local
 systemctl enable rc-local
 systemctl start rc-local
 
+##Install CyburPhone
+cd /var/www/html
+git clone https://github.com/carpenox/CyburPhone.git
+chmod -R 744 CyburPhone
+chown -R apache:apache CyburPhone
+
 ##Install Dynportal
 yum install -y firewalld
 cd /home
