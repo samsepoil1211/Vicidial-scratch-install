@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Vicidial installation AlmaLinux with WebPhone(WebRTC/SIP.js)"
+echo "Vicidial installation AlmaLinux/RockyLinux with CyburPhone and Dynamic portal"
 
 export LC_ALL=C
 
