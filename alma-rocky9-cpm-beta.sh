@@ -166,7 +166,7 @@ echo "Install Perl"
 yum install -y perl-CPAN perl-YAML perl-CPAN-DistnameInfo perl-libwww-perl perl-DBI perl-DBD-MySQL perl-GD perl-Env perl-Term-ReadLine-Gnu perl-SelfLoader perl-open.noarch 
 
 #CPM install
-cd vicidial-install-scripts
+cd /usr/src/vicidial-install-scripts
 curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g App::cpm
 /usr/local/bin/cpm install -g
 
