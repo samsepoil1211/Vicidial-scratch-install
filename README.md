@@ -35,6 +35,13 @@ git clone https://github.com/carpenox/vicidial-install-scripts.git
 cd vicidial-install-scripts
 ```
 
+# Alma/Rocky 9 Installer with Dynamic portal and Asterisk 16
+
+```
+chmod +x alma9.sh
+./alma9.sh
+```
+
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with Asterisk 18
 
 ```
