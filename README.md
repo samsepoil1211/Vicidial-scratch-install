@@ -1,5 +1,6 @@
 # VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
-# Centos7 and AlmaLinux Vicidial Install pre_requisites 
+# Centos, Rocky and AlmaLinux Vicidial Install pre_requisites 
+# I have created a faster auto installer for Alma and Rocky 9 that will also install the dynamic portal and the CyburPhone
 
 ```
 
@@ -29,15 +30,16 @@ reboot
 # Install VICIDIAL scripts
 
 ```
+cd /usr/src/
 git clone https://github.com/carpenox/vicidial-install-scripts.git
 cd vicidial-install-scripts
 ```
 
-# Alma 9 Installer
+# Alma/Rocky 9 Installer with Dynamic portal and CyburPhone
 
 ```
-chmod +x alma9.sh
-./alma9.sh
+chmod +x alma-rocky9-cpm-beta.sh
+./alma-rocky9-cpm-beta.sh
 ```
 
 # Alma 8 Add on telephony server for a cluster
