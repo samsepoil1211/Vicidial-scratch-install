@@ -55,14 +55,14 @@ chmod +x vicidial-install-c7.sh
 ./vicidial-install-c7.sh
 ```
 
-# Execute AlmaLinux Vicidial Install
+# Execute Alma/Rocky 8 Linux Vicidial Install
 ```
 chmod +x vicidial-install-almalinux.sh
 ./vicidial-install-almalinux.sh
 ```
 
 
-# Install WEBRTC for VICIDIAL Now (coming soon)
+# Install Webphone and SSL cert for VICIDIAL
 # DO THIS IF YOU HAVE PUBLIC DOMAIN WITH PUBLIC IP ONLY
 
 ```
