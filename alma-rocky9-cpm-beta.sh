@@ -716,9 +716,10 @@ WELCOME
 chmod 777 /var/spool/asterisk/monitorDONE
 chkconfig asterisk off
 
+yum in certbot -y
 systemctl enable certbot-renew.timer
 systemctl start certbot-renew.timer
-cd /root/vicidial-install-scripts
+cd /usr/src/vicidial-install-scripts
 chmod +x vicidial-enable-webrtc.sh
 ./vicidial-enable-webrtc.sh
 
