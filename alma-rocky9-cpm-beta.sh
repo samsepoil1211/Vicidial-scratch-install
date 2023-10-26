@@ -724,7 +724,9 @@ systemctl enable certbot-renew.timer
 systemctl start certbot-renew.timer
 cd /usr/src/vicidial-install-scripts
 chmod +x vicidial-enable-webrtc.sh
+systemctl firewalld stop
 ./vicidial-enable-webrtc.sh
+systemctl firewalld start
 
 
 read -p 'Press Enter to Reboot: '
