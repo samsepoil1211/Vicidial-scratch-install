@@ -279,7 +279,20 @@ patch < timeout_reset_dial_core-18.patch main/dial.c
 
 yum in libuuid-devel libxml2-devel -y
 
- sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
+: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
+./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
+
+make menuselect/menuselect menuselect-tree menuselect.makeopts
+#enable app_meetme
+menuselect/menuselect --enable app_meetme menuselect.makeopts
+#enable res_http_websocket
+menuselect/menuselect --enable res_http_websocket menuselect.makeopts
+#enable res_srtp
+menuselect/menuselect --enable res_srtp menuselect.makeopts
+make -j ${JOBS} all
+make install
+
+sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
@@ -293,7 +306,6 @@ menuselect/menuselect --enable res_http_websocket menuselect.makeopts
 menuselect/menuselect --enable res_srtp menuselect.makeopts
 make -j ${JOBS} all
 make install
-make samples
 
 read -p 'Press Enter to continue: '
 
