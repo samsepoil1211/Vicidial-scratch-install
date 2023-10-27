@@ -292,21 +292,6 @@ menuselect/menuselect --enable res_srtp menuselect.makeopts
 make -j ${JOBS} all
 make install
 
-sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
-
-: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
-./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
-
-make menuselect/menuselect menuselect-tree menuselect.makeopts
-#enable app_meetme
-menuselect/menuselect --enable app_meetme menuselect.makeopts
-#enable res_http_websocket
-menuselect/menuselect --enable res_http_websocket menuselect.makeopts
-#enable res_srtp
-menuselect/menuselect --enable res_srtp menuselect.makeopts
-make -j ${JOBS} all
-make install
-
 read -p 'Press Enter to continue: '
 
 echo 'Continuing...'
@@ -431,6 +416,23 @@ perl install.pl --no-prompt --copy_sample_conf_files=Y
 
 #Secure Manager 
 sed -i s/0.0.0.0/127.0.0.1/g /etc/asterisk/manager.conf
+
+#Add chan_sip to Asterisk 18
+cd /usr/src/asterisk/asterisk-18.18.1/
+sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
+
+: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
+./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
+
+make menuselect/menuselect menuselect-tree menuselect.makeopts
+#enable app_meetme
+menuselect/menuselect --enable app_meetme menuselect.makeopts
+#enable res_http_websocket
+menuselect/menuselect --enable res_http_websocket menuselect.makeopts
+#enable res_srtp
+menuselect/menuselect --enable res_srtp menuselect.makeopts
+make -j ${JOBS} all
+make install
 
 echo "Populate AREA CODES"
 /usr/share/astguiclient/ADMIN_area_code_populate.pl
@@ -736,9 +738,9 @@ systemctl enable certbot-renew.timer
 systemctl start certbot-renew.timer
 cd /usr/src/vicidial-install-scripts
 chmod +x vicidial-enable-webrtc.sh
-systemctl firewalld stop
+service firewalld stop
 ./vicidial-enable-webrtc.sh
-systemctl firewalld start
+service firewalld start
 
 
 read -p 'Press Enter to Reboot: '
