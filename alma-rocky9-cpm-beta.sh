@@ -15,15 +15,14 @@ dnf module enable php:remi-7.4 -y
 dnf module enable mariadb:10.5 -y
 
 dnf -y install dnf-plugins-core
-dnf config-manager --set-enabled powertools
 
 yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-opcache -y 
 yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-devel readline-devel php-mbstring php-mcrypt 
 yum in -y php-imap php-ldap php-mysqli php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick 
 yum in -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
 yum in -y php-opcache libss7 mariadb-devel libss7* libopen* 
-yum -y install sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
-yum install -y libedit-devel uuid* libxml2*
+yum in -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
+yum in -y libedit-devel uuid* libxml2*
 
 
 dnf --enablerepo=crb install libsrtp-devel -y
@@ -179,7 +178,7 @@ perl Makefile.PL
 make all
 make install 
 
-dnf --enablerepo=powertools install libsrtp-devel -y
+yum install libsrtp-devel -y
 yum install -y elfutils-libelf-devel libedit-devel
 
 
@@ -289,9 +288,11 @@ menuselect/menuselect --enable app_meetme menuselect.makeopts
 menuselect/menuselect --enable res_http_websocket menuselect.makeopts
 #enable res_srtp
 menuselect/menuselect --enable res_srtp menuselect.makeopts
+make samples
+sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
 make -j ${JOBS} all
 make install
-make samples
+
 
 read -p 'Press Enter to continue: '
 
@@ -419,21 +420,7 @@ perl install.pl --no-prompt --copy_sample_conf_files=Y
 sed -i s/0.0.0.0/127.0.0.1/g /etc/asterisk/manager.conf
 
 #Add chan_sip to Asterisk 18
-cd /usr/src/asterisk/asterisk-18.18.1/
-sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
 
-: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
-./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
-
-make menuselect/menuselect menuselect-tree menuselect.makeopts
-#enable app_meetme
-menuselect/menuselect --enable app_meetme menuselect.makeopts
-#enable res_http_websocket
-menuselect/menuselect --enable res_http_websocket menuselect.makeopts
-#enable res_srtp
-menuselect/menuselect --enable res_srtp menuselect.makeopts
-make -j ${JOBS} all
-make install
 
 echo "Populate AREA CODES"
 /usr/share/astguiclient/ADMIN_area_code_populate.pl
