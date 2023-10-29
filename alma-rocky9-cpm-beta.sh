@@ -712,6 +712,28 @@ sox ../mohmp3/manolo_camp-morning_coffee.wav manolo_camp-morning_coffee.wav vol 
 sox ../mohmp3/manolo_camp-morning_coffee.gsm manolo_camp-morning_coffee.gsm vol 0.25
 sox -t ul -r 8000 -c 1 ../mohmp3/manolo_camp-morning_coffee.ulaw -t ul manolo_camp-morning_coffee.ulaw vol 0.25
 
+tee -a ~/.bashrc <<EOF
+
+# Commands
+/usr/share/astguiclient/ADMIN_keepalive_ALL.pl --cu3way
+/usr/bin/systemctl status httpd --no-pager
+/usr/bin/systemctl status firewalld --no-pager
+/usr/bin/screen -ls
+/usr/sbin/dahdi_cfg -v
+/usr/sbin/asterisk -V
+EOF
+
+sed -i s/Banner none/Banner /etc/ssh/sshd-banner/g /etc/sshsshd_config
+
+tee -a /etc/ssh/sshd-banner <<EOF
+Thank you for choosing CyburDial and carpenox's auto installer!
+
+Visit our Knowledge Base at https://www.dialer.one
+
+Support: info@dialer.one
+Skype Live Chat Support: https://join.skype.com/ujkQ7i5lV78O
+EOF
+
 
 cat <<WELCOME>> /var/www/html/index.html
 <META HTTP-EQUIV=REFRESH CONTENT="1; URL=/vicidial/welcome.php">
