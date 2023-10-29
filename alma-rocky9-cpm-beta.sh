@@ -723,7 +723,7 @@ tee -a ~/.bashrc <<EOF
 /usr/sbin/asterisk -V
 EOF
 
-sed -i s/Banner none/Banner /etc/ssh/sshd-banner/g /etc/sshsshd_config
+sed -i s/Banner none/Banner /etc/ssh/sshd_banner/g /etc/sshsshd_config
 
 tee -a /etc/ssh/sshd-banner <<EOF
 Thank you for choosing CyburDial and carpenox's auto installer!
