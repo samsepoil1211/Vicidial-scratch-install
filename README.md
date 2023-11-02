@@ -1,3 +1,7 @@
+
+# www.dialer.one for our full knowledge base
+
+
 # VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
 # Centos, Rocky and AlmaLinux Vicidial Install pre_requisites 
 # I have created a faster auto installer for Alma and Rocky 9 that will also install the dynamic portal and the CyburPhone
