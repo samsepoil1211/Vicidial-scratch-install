@@ -46,12 +46,16 @@ chmod +x alma9.sh
 ./alma9.sh
 ```
 
+Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
+
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with Asterisk 18
 
 ```
 chmod +x alma-rocky9-cpm-beta.sh
 ./alma-rocky9-cpm-beta.sh
 ```
+
+Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
 
 # Alma 8 Add on telephony server for a cluster
 
