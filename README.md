@@ -42,8 +42,8 @@ cd vicidial-install-scripts
 # Alma/Rocky 9 Installer with Dynamic portal and Asterisk 16
 
 ```
-chmod +x alma9.sh
-./alma9.sh
+chmod +x alma-rocky9-ast16.sh
+./alma-rocky9-ast16.sh
 ```
 
 Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
@@ -51,8 +51,8 @@ Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with Asterisk 18
 
 ```
-chmod +x alma-rocky9-cpm-beta.sh
-./alma-rocky9-cpm-beta.sh
+chmod +x alma-rocky9-ast18.sh
+./alma-rocky9-ast18.sh
 ```
 
 Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
