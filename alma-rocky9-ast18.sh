@@ -627,14 +627,24 @@ cd etc/httpd/conf.d/
 mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
 unzip -o firewall.zip
+cd zones/
 rm -rf public.xml trusted.xml
-mv -b public.xml trusted.xml /etc/firewalld/zones/
+mv -bf public.xml trusted.xml /etc/firewalld/zones/
 mv /home/aggregate /usr/bin/
 chmod +x /usr/bin/aggregate
 mv /home/VB-firewall /usr/bin/
 chmod +x /usr/bin/VB-firewall
 
 firewall-offline-cmd --add-port=446/tcp --zone=public
+
+##Fix ip_relay
+cd /usr/src/astguiclient/trunk/extras/ip_relay/
+unzip ip_relay_1.1.112705.zip
+cd ip_relay_1.1/src/unix/
+make
+cp ip_relay ip_relay2
+mv -f ip_relay /usr/bin/
+mv -f ip_relay2 /usr/local/bin/ip_relay
 
 tee -a /etc/httpd/conf/httpd.conf <<EOF
 
