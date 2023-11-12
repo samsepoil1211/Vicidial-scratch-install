@@ -623,6 +623,8 @@ mv /home/dynportal.zip /var/www/vhosts/dynportal/
 mv /home/firewall.zip /etc/firewalld/
 cd /var/www/vhosts/dynportal/
 unzip dynportal.zip
+chmod -R 755 *
+chown -R apache:apache *
 cd etc/httpd/conf.d/
 mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
