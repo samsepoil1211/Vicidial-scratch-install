@@ -629,6 +629,7 @@ cd /etc/firewalld/
 unzip -o firewall.zip
 cd zones/
 rm -rf public.xml trusted.xml
+cd /etc/firewalld/
 mv -bf public.xml trusted.xml /etc/firewalld/zones/
 mv /home/aggregate /usr/bin/
 chmod +x /usr/bin/aggregate
