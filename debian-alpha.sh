@@ -6,7 +6,7 @@ export LC_ALL=C
 
 apt install build-essential
 apt install flex git python3-pip yum
-yum groupinstall "Development Tools" -y
+##yum groupinstall "Development Tools" -y
 
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 yum -y install yum-utils
