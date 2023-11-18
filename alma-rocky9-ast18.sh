@@ -534,6 +534,11 @@ cat <<CRONTAB>> /root/crontab-file
 ### Dynportal
 @reboot /usr/bin/VB-firewall --whitelist=ViciWhite --dynamic --quiet
 * * * * * /usr/bin/VB-firewall --whitelist=ViciWhite --dynamic --quiet
+* * * * * sleep 10; /usr/local/bin/VB-firewall.pl --white --dynamic --quiet
+* * * * * sleep 20; /usr/local/bin/VB-firewall.pl --white --dynamic --quiet
+* * * * * sleep 30; /usr/local/bin/VB-firewall.pl --white --dynamic --quiet
+* * * * * sleep 40; /usr/local/bin/VB-firewall.pl --white --dynamic --quiet
+* * * * * sleep 50; /usr/local/bin/VB-firewall.pl --white --dynamic --quiet
 
 
 CRONTAB
