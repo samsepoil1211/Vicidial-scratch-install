@@ -8,22 +8,23 @@ apt install build-essential
 apt install flex git python3-pip yum
 ##yum groupinstall "Development Tools" -y
 
-yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-yum -y install yum-utils
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
-dnf install https://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
-dnf module enable php:remi-7.4 -y
-dnf module enable mariadb:10.5 -y
+apt install -y apt-transport-https lsb-release ca-certificates wget
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+sudo apt update
+apt install -y php7.4 
+apt install -y mariadb-server
+ 
 
-dnf -y install dnf-plugins-core
+apt -y install dnf-plugins-core
 
-yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-opcache -y 
-yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-devel readline-devel php-mbstring php-mcrypt 
-yum in -y php-imap php-ldap php-mysqli php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick 
-yum in -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
-yum in -y php-opcache libss7 mariadb-devel libss7* libopen* 
-yum in -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
-yum in -y libedit-devel uuid* libxml2*
+apt install -y php7.4 php7.4-opcache screen php7.4-mcrypt php-pear libmcrypt-dev mcrypt byobu screenie iselect db5.3-util libapache2-mod-svn subversion-tools subversion php7.4-cli php7.4-gd php7.4-curl php7.4-mysql php7.4-ldap php7.4-zip php7.4-common
+apt install -y wget unzip make patch subversion php7.4-mbstring
+apt install -y php7.4-imap php7.4-ldap php7.4-mysqli php7.4-odbc php-pear php7.4-xml php7.4-xmlrpc curlk 
+##apt install -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
+##apt install -y php-opcache libss7 mariadb-devel libss7* libopen* 
+##apt install -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
+apt install -y uuid* libxml2*
 
 
 dnf --enablerepo=crb install libsrtp-devel -y
