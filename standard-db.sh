@@ -6,3 +6,4 @@ mysql -u root asterisk < standard-db
 cd /usr/src/astguiclient/trunk
 svn up
 perl install.pl
+echo "The default password for the 6666 admin user is CyburDial2024"
