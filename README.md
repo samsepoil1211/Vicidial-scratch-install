@@ -39,7 +39,7 @@ git clone https://github.com/carpenox/vicidial-install-scripts.git
 cd vicidial-install-scripts
 ```
 
-# Alma/Rocky 9 Installer with Dynamic portal and Asterisk 16
+# Alma/Rocky 9 Installer with Dynamic portal, CyburPhone, SSL Cert and Asterisk 16
 
 ```
 chmod +x alma-rocky9-ast16.sh
@@ -48,7 +48,7 @@ chmod +x alma-rocky9-ast16.sh
 
 Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
 
-# Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with Asterisk 18
+# Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with SSL cert with Asterisk 18
 
 ```
 chmod +x alma-rocky9-ast18.sh
@@ -56,6 +56,14 @@ chmod +x alma-rocky9-ast18.sh
 ```
 
 Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
+
+# Install a default database with everything setup ready to go
+
+```
+chmod +x standard-db.sh
+./standard-db.sh
+```
+
 
 # Alma 8 Add on telephony server for a cluster
 
