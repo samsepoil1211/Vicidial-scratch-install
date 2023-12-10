@@ -5,5 +5,5 @@ mysql -u root asterisk < standard-db
 /usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=10.10.10.15
 cd /usr/src/astguiclient/trunk
 svn up
-perl install.pl
+perl install.pl --no-prompt
 echo "The default password for the 6666 admin user is CyburDial2024"
