@@ -345,6 +345,8 @@ eventfilter=Event: Meetme
 eventfilter=Event: Confbridge
 EOF
 
+sleep 10
+
 sed -i 's|vicidial_conferences|vicidial_confbridges|g' /var/www/html/vicidial/non_agent_api.php
 
 
