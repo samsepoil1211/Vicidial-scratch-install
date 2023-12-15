@@ -11,7 +11,7 @@ tee -a /etc/asterisk/confbridge.conf <<EOF
 #include confbridge-vicidial.conf
 EOF
 
-mysql -A asterisk
+mysql -u root -p -A asterisk<< MYSQLCREOF
 INSERT INTO `vicidial_confbridges` VALUES 
 (9600000,'10.10.10.17','','0',NULL),
 (9600001,'10.10.10.17','','0',NULL),
@@ -314,6 +314,7 @@ INSERT INTO `vicidial_confbridges` VALUES
 (9600298,'10.10.10.17','','0',NULL),
 (9600299,'10.10.10.17','','0',NULL);
 exit
+MYSQLCREOF
 
 /usr/share/astguiclient/ADMIN_update_server_ip.pl –old-server_ip=10.10.10.17
 
