@@ -1,4 +1,6 @@
+#!/bin/sh
 
+echo "Upgrade Asterisk 18 to use ConfBridges"
 
 cd /usr/src/asterisk/asterisk-18.18.1/
 wget http://download.vicidial.com/asterisk-patches/Asterisk-18/amd_stats-18.patch
@@ -19,15 +21,6 @@ patch < sip_peer_status-18.patch channels/chan_sip.c
 patch < timeout_reset_dial_app-18.patch apps/app_dial.c
 patch < timeout_reset_dial_core-18.patch main/dial.c
 
-tee -a /etc/php.ini <<EOF
+cd /usr/src/vicidial-install-scripts/
+mv extensions.conf /etc/asterisk/
 
-error_reporting  =  E_ALL & ~E_NOTICE
-memory_limit = 448M
-short_open_tag = On
-max_execution_time = 3330
-max_input_time = 3360
-post_max_size = 448M
-upload_max_filesize = 442M
-default_socket_timeout = 3360
-date.timezone = America/New_York
-EOF
