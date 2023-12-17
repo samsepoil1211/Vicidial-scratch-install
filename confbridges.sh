@@ -330,7 +330,7 @@ read -p 'Press Enter to continue: '
 echo 'Continuing...'
 
 
-/usr/share/astguiclient/ADMIN_update_server_ip.pl –old-server_ip=10.10.10.17
+/usr/share/astguiclient/ADMIN_update_server_ip.pl –-old-server_ip=10.10.10.17
 
 cd /usr/src/astguiclient/trunk/extras/ConfBridge/
 cp * /usr/share/astguiclient/
