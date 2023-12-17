@@ -12,7 +12,9 @@ tee -a /etc/asterisk/confbridge.conf <<EOF
 EOF
 
 echo "%%%%%%%%%%%%%%%Please Enter Mysql Password Or Just Press Enter if you Dont have Password%%%%%%%%%%%%%%%%%%%%%%%%%%"
-mysql<< MYSQLCREOF
+sleep 3
+mysql -u root -p<< MYSQLCREOF
+sleep 3
 use asterisk;
 INSERT INTO `vicidial_confbridges` VALUES 
 (9600000,'10.10.10.17','','0',NULL),
