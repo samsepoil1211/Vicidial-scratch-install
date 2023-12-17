@@ -11,8 +11,8 @@ tee -a /etc/asterisk/confbridge.conf <<EOF
 #include confbridge-vicidial.conf
 EOF
 
-mysql -u root -p << MYSQLCREOF
 echo "%%%%%%%%%%%%%%%Please Enter Mysql Password Or Just Press Enter if you Dont have Password%%%%%%%%%%%%%%%%%%%%%%%%%%"
+mysql -u root -p << MYSQLCREOF
 use asterisk;
 INSERT INTO `vicidial_confbridges` VALUES 
 (9600000,'10.10.10.17','','0',NULL),
@@ -317,6 +317,11 @@ INSERT INTO `vicidial_confbridges` VALUES
 (9600299,'10.10.10.17','','0',NULL);
 exit
 MYSQLCREOF
+
+read -p 'Press Enter to continue: '
+
+echo 'Continuing...'
+
 
 /usr/share/astguiclient/ADMIN_update_server_ip.pl –old-server_ip=10.10.10.17
 
