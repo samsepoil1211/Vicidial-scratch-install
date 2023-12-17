@@ -16,10 +16,34 @@ tee -a /etc/asterisk/confbridge.conf <<EOF
 #include confbridge-vicidial.conf
 EOF
 
+cd /usr/src/astguiclient/trunk/extras/ConfBridge/
+cp * /usr/share/astguiclient/
+cd /usr/share/astguiclient/
+mv manager_send.php.diff vdc_db_query.php.diff vicidial.php.diff /var/www/html/agc/
+patch -p0 < ADMIN_keepalive_ALL.pl.diff
+patch -p0 < ADMIN_update_server_ip.pl.diff
+patch -p0 < AST_DB_optimize.pl.diff
+chmod +x AST_conf_update_screen.pl
+patch -p0 < AST_reset_mysql_vars.pl.diff
+cd /var/www/html/agc/
+patch -p0 < manager_send.php.diff
+patch -p0 < vdc_db_query.php.diff
+patch -p0 < vicidial.php.diff
+
+tee -a /etc/asterisk/manager.conf <<EOF
+
+[confcron]
+secret = 1234
+read = command,reporting
+write = command,reporting
+
+eventfilter=Event: Meetme
+eventfilter=Event: Confbridge
+EOF
+
 echo "%%%%%%%%%%%%%%%Please Enter Mysql Password Or Just Press Enter if you Dont have Password%%%%%%%%%%%%%%%%%%%%%%%%%%"
 sleep 3
 mysql -u root -p<< MYSQLCREOF
-sleep 3
 use asterisk;
 INSERT INTO `vicidial_confbridges` VALUES 
 (9600000,'10.10.10.17','','0',NULL),
@@ -328,36 +352,10 @@ MYSQLCREOF
 read -p 'Press Enter to continue: '
 
 echo 'Continuing...'
-
-
+echo "%%%%%%%%%%%%%%% Change from 10.10.10.17 to your server IP %%%%%%%%%%%%%%%%%%%"
+sleep 3
 /usr/share/astguiclient/ADMIN_update_server_ip.pl –-old-server_ip=10.10.10.17
 
-cd /usr/src/astguiclient/trunk/extras/ConfBridge/
-cp * /usr/share/astguiclient/
-cd /usr/share/astguiclient/
-mv manager_send.php.diff vdc_db_query.php.diff vicidial.php.diff /var/www/html/agc/
-patch -p0 < ADMIN_keepalive_ALL.pl.diff
-patch -p0 < ADMIN_update_server_ip.pl.diff
-patch -p0 < AST_DB_optimize.pl.diff
-chmod +x AST_conf_update_screen.pl
-patch -p0 < AST_reset_mysql_vars.pl.diff
-cd /var/www/html/agc/
-patch -p0 < manager_send.php.diff
-patch -p0 < vdc_db_query.php.diff
-patch -p0 < vicidial.php.diff
-
-tee -a /etc/asterisk/manager.conf <<EOF
-
-[confcron]
-secret = 1234
-read = command,reporting
-write = command,reporting
-
-eventfilter=Event: Meetme
-eventfilter=Event: Confbridge
-EOF
-
-sleep 10
 
 sed -i 's|vicidial_conferences|vicidial_confbridges|g' /var/www/html/vicidial/non_agent_api.php
 
