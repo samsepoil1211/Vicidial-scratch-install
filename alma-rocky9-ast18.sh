@@ -784,6 +784,8 @@ WELCOME
 chmod 777 /var/spool/asterisk/monitorDONE
 chkconfig asterisk off
 
+mv /etc/httpd/conf.d/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf.off
+
 yum in certbot -y
 systemctl enable certbot-renew.timer
 systemctl start certbot-renew.timer
@@ -794,7 +796,7 @@ service firewalld stop
 service firewalld start
 systemctl enable firewalld
 
-mv /etc/httpd/conf.d/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf.off
+
 
 read -p 'Press Enter to Reboot: '
 
