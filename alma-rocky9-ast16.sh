@@ -752,6 +752,11 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 
+##fstab entry
+tee -a /etc/fstab <<EOF
+none /var/spool/asterisk/monitor tmpfs nodev,nosuid,noexec,nodiratime,size=500M 0 0
+EOF
+
 systemctl daemon-reload
 sudo systemctl enable rc-local.service
 sudo systemctl start rc-local.service
