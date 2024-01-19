@@ -801,7 +801,8 @@ service firewalld stop
 service firewalld start
 systemctl enable firewalld
 
-
+chmod -R 777 /var/spool/asterisk/monitorDONE
+chown -R apache:apache /var/spool/asterisk/monitorDONE
 
 read -p 'Press Enter to Reboot: '
 
