@@ -437,6 +437,9 @@ cat <<CRONTAB>> /root/crontab-file
 ###Audio Sync hourly
 * 1 * * * /usr/share/astguiclient/ADMIN_audio_store_sync.pl --upload --quiet
 
+### Daily Backups ###
+0 2 * * * /usr/share/astguiclient/ADMIN_backup.pl
+
 ###certbot renew
 51 23 1 * * /usr/bin/systemctl stop firewalld
 52 23 1 * * /usr/sbin/certbot renew
@@ -506,7 +509,7 @@ cat <<CRONTAB>> /root/crontab-file
 
 
 ### roll logs monthly on high-volume dialing systems
-#30 1 1 * * /usr/share/astguiclient/ADMIN_archive_log_tables.pl
+30 1 1 * * /usr/share/astguiclient/ADMIN_archive_log_tables.pl --DAYS=45
 
 ### remove old vicidial logs and asterisk logs more than 2 days old
 28 0 * * * /usr/bin/find /var/log/astguiclient -maxdepth 1 -type f -mtime +2 -print | xargs rm -f
