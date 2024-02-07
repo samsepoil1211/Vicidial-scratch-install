@@ -245,8 +245,7 @@ echo 'Continuing...'
 mkdir /usr/src/asterisk
 cd /usr/src/asterisk
 wget https://downloads.asterisk.org/pub/telephony/libpri/libpri-1.6.1.tar.gz
-wget https://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
-
+wget https://download.vicidial.com/required-apps/asterisk-16.30.1-vici.tar.gz
 tar -xvzf asterisk-*
 tar -xvzf libpri-*
 
@@ -258,7 +257,7 @@ cd libsrtp-2.1.0
 make shared_library && sudo make install
 ldconfig
 
-cd /usr/src/asterisk/asterisk-16.17.0-vici
+cd /usr/src/asterisk/asterisk-16.30.1-vici
 
 yum in libuuid-devel libxml2-devel -y
 
@@ -309,7 +308,7 @@ SET GLOBAL connect_timeout=60;
 use asterisk;
 \. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 \. /usr/src/astguiclient/trunk/extras/first_server_install.sql
-update servers set asterisk_version='16.30.0';
+update servers set asterisk_version='16.30.1';
 quit
 MYSQLCREOF
 
@@ -401,8 +400,6 @@ perl install.pl --no-prompt --copy_sample_conf_files=Y
 
 #Secure Manager 
 sed -i s/0.0.0.0/127.0.0.1/g /etc/asterisk/manager.conf
-
-#Add chan_sip to Asterisk 18
 
 
 echo "Populate AREA CODES"
