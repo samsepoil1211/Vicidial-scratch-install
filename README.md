@@ -85,8 +85,8 @@ chmod +x vicidial-install-c7.sh
 
 # Execute Alma/Rocky 8 Linux Vicidial Install
 ```
-chmod +x vicidial-install-almalinux.sh
-./vicidial-install-almalinux.sh
+chmod +x alma-rocky-centos8-ast16.sh
+./alma-rocky-centos8-ast16.sh
 ```
 
 
