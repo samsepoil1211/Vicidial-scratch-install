@@ -634,6 +634,10 @@ cp ip_relay ip_relay2
 mv -f ip_relay /usr/bin/
 mv -f ip_relay2 /usr/local/bin/ip_relay
 
+cd /usr/lib64/asterisk/modules
+wget http://asterisk.hosting.lv/bin/codec_g729-ast160-gcc4-glibc-x86_64-core2-sse4.so
+mv codec_g729-ast160-gcc4-glibc-x86_64-core2-sse4.so codec_g729.so
+chmod 777 codec_g729.so
 
 tee -a /etc/httpd/conf/httpd.conf <<EOF
 
