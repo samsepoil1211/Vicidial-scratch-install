@@ -83,12 +83,17 @@ chmod +x vicidial-install-c7.sh
 ./vicidial-install-c7.sh
 ```
 
-# Execute Alma/Rocky 8 Linux Vicidial Install
+# Execute Alma/Rocky 8 Linux Vicidial Install - Ast 16
 ```
 chmod +x alma-rocky-centos8-ast16.sh
 ./alma-rocky-centos8-ast16.sh
 ```
 
+# Execute Alma/Rocky 8 Linux Vicidial Install - Ast 18
+```
+chmod +x alma-rocky-centos-8-ast18.sh
+./alma-rocky-centos-8-ast18.sh
+```
 
 # Install Webphone and SSL cert for VICIDIAL
 # DO THIS IF YOU HAVE PUBLIC DOMAIN WITH PUBLIC IP ONLY
