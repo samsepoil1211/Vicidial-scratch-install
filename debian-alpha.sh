@@ -26,10 +26,55 @@ apt install -y php7.4-imap php7.4-ldap php7.4-mysqli php7.4-odbc php-pear php7.4
 ##apt install -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
 apt install -y uuid* libxml2*
 
+cpan> install Bundle::CPAN
+cpan> reload cpan
+cpan> install YAML
+cpan> install MD5
+cpan> install Digest::MD5
+cpan> install Digest::SHA1
+cpan> install readline
+cpan> reload cpan
+cpan> install DBI
+cpan> force install DBD::mysql
+cpan> install Net::Telnet
+cpan> install Time::HiRes
+cpan> install Net::Server
+cpan> install Switch
+cpan> install Mail::Sendmail
+cpan> install Unicode::Map
+cpan> install Jcode
+cpan> install Spreadsheet::WriteExcel
+cpan> install OLE::Storage_Lite
+cpan> install Proc::ProcessTable
+cpan> install IO::Scalar
+cpan> install Spreadsheet::ParseExcel
+cpan> install Curses
+cpan> install Getopt::Long
+cpan> install Net::Domain
+cpan> install Term::ReadKey
+cpan> install Term::ANSIColor
+cpan> install Spreadsheet::XLSX
+cpan> install Spreadsheet::Read
+cpan> install LWP::UserAgent
+cpan> install HTML::Entities
+cpan> install HTML::Strip
+cpan> install HTML::FormatText
+cpan> install HTML::TreeBuilder
+cpan> install Time::Local
+cpan> install MIME::Decoder
+cpan> install Mail::POP3Client
+cpan> install Mail::IMAPClient
+cpan> install Mail::Message
+cpan> install IO::Socket::SSL
+cpan> install MIME::Base64
+cpan> install MIME::QuotedPrint
+cpan> install Crypt::Eksblowfish::Bcrypt
+cpan> quit 
 
-dnf --enablerepo=crb install libsrtp-devel -y
-dnf config-manager --set-enabled crb
-yum install libsrtp-devel -y
+
+apt install libsrtp* -y
+
+### up to this point
 
 tee -a /etc/httpd/conf/httpd.conf <<EOF
 
@@ -63,10 +108,10 @@ EOF
 systemctl restart httpd
 
 
-dnf install -y mariadb-server mariadb
+apt install -y mysql-server mysql
 
-dnf -y install dnf-plugins-core
-dnf config-manager --set-enabled powertools
+apt-get install dnf-plugins-core -y
+#dnf config-manager --set-enabled powertools
 
 
 systemctl enable mariadb
