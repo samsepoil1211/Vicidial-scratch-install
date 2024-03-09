@@ -315,7 +315,7 @@ SET GLOBAL connect_timeout=60;
 use asterisk;
 \. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 \. /usr/src/astguiclient/trunk/extras/first_server_install.sql
-update servers set asterisk_version='16.30.0';
+update servers set asterisk_version='11.25.3';
 quit
 MYSQLCREOF
 
