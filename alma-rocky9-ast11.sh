@@ -264,7 +264,7 @@ cd /usr/src/asterisk/asterisk-11.25.3/
 yum in libuuid-devel libxml2-devel -y
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
-./configure --libdir=/usr/lib --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
+./configure --libdir=/usr/lib --with-gsm=internal --enable-opus --enable-srtp --without-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
 
 make menuselect/menuselect menuselect-tree menuselect.makeopts
 #enable app_meetme
