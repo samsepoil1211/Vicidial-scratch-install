@@ -52,7 +52,7 @@ cd vicidial-install-scripts
 ```
 cd /usr/src/vicidial-install-scripts
 chmod +x alma-rocky9-ast11.sh
-./alma-rocky9-ast16.sh
+./alma-rocky9-ast11.sh
 ```
 
 # Alma/Rocky 9 Installer with Dynamic portal, CyburPhone, SSL Cert and Asterisk 16
