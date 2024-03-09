@@ -273,12 +273,12 @@ menuselect/menuselect --enable app_meetme menuselect.makeopts
 menuselect/menuselect --enable res_http_websocket menuselect.makeopts
 #enable res_srtp
 menuselect/menuselect --enable res_srtp menuselect.makeopts
+find / -name libasteriskssl.so.1 -print
+ldconfig -v
 make -j ${JOBS} all
 make install
 make samples
 
-find / -name libasteriskssl.so.1 -print
-ldconfig -v
 
 read -p 'Press Enter to continue: '
 
