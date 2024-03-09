@@ -278,6 +278,9 @@ ldconfig -v
 make -j ${JOBS} all
 make install
 make samples
+find / -name libasteriskssl.so.1 -print;sleep 10
+ldconfig -v
+make && make install
 
 
 read -p 'Press Enter to continue: '
