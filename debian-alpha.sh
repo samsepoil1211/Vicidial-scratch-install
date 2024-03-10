@@ -18,6 +18,7 @@ apt install -y mariadb-server
 apt install libjansson* libedit* -y
 apt -y install dnf-plugins-core
 sudo apt install sqlite3 libsqlite3-dev
+apt-get install linux-headers-generic
 
 apt install -y php7.4 php7.4-opcache screen php7.4-mcrypt php-pear libmcrypt-dev mcrypt byobu screenie iselect db5.3-util libapache2-mod-svn subversion-tools subversion php7.4-cli php7.4-gd php7.4-curl php7.4-mysql php7.4-ldap php7.4-zip php7.4-common
 apt install -y wget unzip make patch subversion php7.4-mbstring apache2
