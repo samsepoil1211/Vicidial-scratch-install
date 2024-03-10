@@ -19,7 +19,7 @@ apt install -y mariadb-server
 apt -y install dnf-plugins-core
 
 apt install -y php7.4 php7.4-opcache screen php7.4-mcrypt php-pear libmcrypt-dev mcrypt byobu screenie iselect db5.3-util libapache2-mod-svn subversion-tools subversion php7.4-cli php7.4-gd php7.4-curl php7.4-mysql php7.4-ldap php7.4-zip php7.4-common
-apt install -y wget unzip make patch subversion php7.4-mbstring
+apt install -y wget unzip make patch subversion php7.4-mbstring apache2
 apt install -y php7.4-imap php7.4-ldap php7.4-mysqli php7.4-odbc php-pear php7.4-xml php7.4-xmlrpc curlk 
 ##apt install -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
 ##apt install -y php-opcache libss7 mariadb-devel libss7* libopen* 
@@ -76,7 +76,7 @@ apt install libsrtp* -y
 
 ### up to this point
 
-tee -a /etc/httpd/conf/httpd.conf <<EOF
+tee -a /etc/apache2/apache2.conf <<EOF
 
 CustomLog /dev/null common
 
@@ -91,7 +91,7 @@ EOF
 
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-tee -a /etc/php.ini <<EOF
+tee -a /etc/php/7.4/apache2/php.ini <<EOF
 
 error_reporting  =  E_ALL & ~E_NOTICE
 memory_limit = 448M
@@ -105,16 +105,16 @@ date.timezone = America/New_York
 EOF
 
 
-systemctl restart httpd
+systemctl restart apache2
 
 
-apt install -y mysql-server mysql
+apt install -y mysql*
 
 apt-get install dnf-plugins-core -y
 #dnf config-manager --set-enabled powertools
 
 
-systemctl enable mariadb
+systemctl enable mysql
 
 cp /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
@@ -200,21 +200,21 @@ touch /var/log/mysqld/slow-queries.log
 chown -R mysql:mysql /var/log/mysqld
 systemctl restart mariadb
 
-systemctl enable httpd.service
+systemctl enable apache2.service
 systemctl enable mariadb.service
-systemctl restart httpd.service
+systemctl restart apache2.service
 systemctl restart mariadb.service
 
 #Install Perl Modules
 
 echo "Install Perl"
 
-yum install -y perl-CPAN perl-YAML perl-CPAN-DistnameInfo perl-libwww-perl perl-DBI perl-DBD-MySQL perl-GD perl-Env perl-Term-ReadLine-Gnu perl-SelfLoader perl-open.noarch 
+apt install -y perl-CPAN perl-YAML perl-CPAN-DistnameInfo perl-libwww-perl perl-DBI perl-DBD-MySQL perl-GD perl-Env perl-Term-ReadLine-Gnu perl-SelfLoader perl-open.noarch 
 
 #CPM install
-cd /usr/src/vicidial-install-scripts
-curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g App::cpm
-/usr/local/bin/cpm install -g
+#cd /usr/src/vicidial-install-scripts
+#curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g App::cpm
+#/usr/local/bin/cpm install -g
 
 #Install Asterisk Perl
 cd /usr/src
@@ -224,9 +224,6 @@ cd asterisk-perl-0.08
 perl Makefile.PL
 make all
 make install 
-
-yum install libsrtp-devel -y
-yum install -y elfutils-libelf-devel libedit-devel
 
 
 #Install Lame
@@ -261,7 +258,7 @@ mkdir dahdi-linux-complete-3.2.0+3.2.0
 cd dahdi-linux-complete-3.2.0+3.2.0
 wget https://dialer.one/dahdi-alma9.zip
 unzip dahdi-alma9.zip
-yum in newt* -y
+apt install newt* -y
 
 sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/drivers/dahdi/wctc4xxp/base.c
 sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
