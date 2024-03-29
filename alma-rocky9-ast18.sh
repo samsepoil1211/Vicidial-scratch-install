@@ -21,8 +21,6 @@ yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-d
 yum in -y php-imap php-ldap php-mysqli php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick 
 yum in -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
 yum in -y php-opcache libss7 mariadb-devel libss7* libopen* 
-yum in -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
-yum in -y libedit-devel uuid* libxml2* speex-devel speex* postfix dovecot s-nail roundcubemail inxi
 yum copr enable irontec/sngrep -y
 dnf install sngrep -y
 
@@ -62,7 +60,8 @@ EOF
 
 systemctl restart httpd
 
-
+yum in -y sqlite-devel httpd mod_ssl nano chkconfig htop atop mytop iftop
+yum in -y libedit-devel uuid* libxml2* speex-devel speex* postfix dovecot s-nail roundcubemail inxi
 dnf install -y mariadb-server mariadb
 
 dnf -y install dnf-plugins-core
