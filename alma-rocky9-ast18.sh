@@ -796,7 +796,17 @@ cat <<WELCOME>> /var/www/html/index.html
 Please Hold while I redirect you!
 WELCOME
 
-chmod 777 /var/spool/asterisk/monitorDONE
+tee -a /etc/asterisk/manager.conf <<EOF
+
+[confcron]
+secret = 1234
+read = command,reporting
+write = command,reporting
+
+eventfilter=Event: Meetme
+eventfilter=Event: Confbridge
+EOF
+
 chkconfig asterisk off
 
 mv /etc/httpd/conf.d/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf.off
