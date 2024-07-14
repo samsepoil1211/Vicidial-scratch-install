@@ -382,5 +382,5 @@ wget -O /etc/rc.local https://raw.githubusercontent.com/jaganthoutam/vicidial-in
 chmod +x /etc/rc.local
 systemctl start rc-local
 read -p 'Press Enter to Reboot: '
-echo "Restarting Centos"
+echo "Restarting Debian"
 reboot
