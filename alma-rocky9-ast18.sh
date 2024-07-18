@@ -641,7 +641,7 @@ unzip dynportal.zip
 chmod -R 755 *
 chown -R apache:apache *
 cd etc/httpd/conf.d/
-mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
+mv viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
 unzip -o firewall.zip
 cd zones/
@@ -652,6 +652,12 @@ mv /home/aggregate /usr/bin/
 chmod +x /usr/bin/aggregate
 mv /home/VB-firewall /usr/bin/
 chmod +x /usr/bin/VB-firewall
+
+sed -i s/DOMAINNAME/"$hostname"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
+sed -i s/DOMAINNAME/"$hostname"/g /home/viciportal-ssl.conf
+
+## mv -f /root/defaults.inc.php /var/www/vhosts/dynportal/inc/defaults.inc.php
+mv -f /home/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf
 
 firewall-offline-cmd --add-port=446/tcp --zone=public
 
@@ -811,7 +817,7 @@ EOF
 
 chkconfig asterisk off
 
-mv /etc/httpd/conf.d/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf.off
+## mv /etc/httpd/conf.d/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf.off
 
 yum in certbot -y
 systemctl enable certbot-renew.timer
