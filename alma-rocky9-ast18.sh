@@ -792,7 +792,7 @@ EOF
 
 ##fstab entry
 tee -a /etc/fstab <<EOF
-none /var/spool/asterisk/monitor tmpfs nodev,nosuid,noexec,nodiratime,size=500M 0 0
+none /var/spool/asterisk/monitor tmpfs nodev,nosuid,noexec,nodiratime,size=2G 0 0
 EOF
 
 systemctl daemon-reload
