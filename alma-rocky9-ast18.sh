@@ -762,6 +762,17 @@ tee -a ~/.bashrc <<EOF
 /usr/sbin/asterisk -V
 EOF
 
+tee -a /etc/asterisk/manager.conf <<EOF
+
+[confcron]
+secret = 1234
+read = command,reporting
+write = command,reporting
+
+eventfilter=Event: Meetme
+eventfilter=Event: Confbridge
+EOF
+
 sed -i 's|#Banner none|Banner /etc/ssh/sshd_banner|g' /etc/ssh/sshd_config
 
 
