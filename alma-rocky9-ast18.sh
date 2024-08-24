@@ -815,6 +815,10 @@ cat <<WELCOME>> /var/www/html/index.html
 Please Hold while I redirect you!
 WELCOME
 
+cd /usr/src/vicidial-vicidial-install
+chmod +x confbridges.sh
+./confbridges.sh
+
 tee -a /etc/asterisk/manager.conf <<EOF
 
 [confcron]
