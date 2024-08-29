@@ -815,7 +815,7 @@ cat <<WELCOME>> /var/www/html/index.html
 Please Hold while I redirect you!
 WELCOME
 
-cd /usr/src/vicidial-vicidial-install
+cd /usr/src/vicidial-install-scripts
 chmod +x confbridges.sh
 ./confbridges.sh
 
