@@ -762,16 +762,6 @@ tee -a ~/.bashrc <<EOF
 /usr/sbin/asterisk -V
 EOF
 
-tee -a /etc/asterisk/manager.conf <<EOF
-
-[confcron]
-secret = 1234
-read = command,reporting
-write = command,reporting
-
-eventfilter=Event: Meetme
-eventfilter=Event: Confbridge
-EOF
 
 sed -i 's|#Banner none|Banner /etc/ssh/sshd_banner|g' /etc/ssh/sshd_config
 
@@ -815,20 +805,10 @@ cat <<WELCOME>> /var/www/html/index.html
 Please Hold while I redirect you!
 WELCOME
 
-cd /usr/src/vicidial-install-scripts
-chmod +x confbridges.sh
-./confbridges.sh
+#cd /usr/src/vicidial-install-scripts
+#chmod +x confbridges.sh
+#./confbridges.sh
 
-tee -a /etc/asterisk/manager.conf <<EOF
-
-[confcron]
-secret = 1234
-read = command,reporting
-write = command,reporting
-
-eventfilter=Event: Meetme
-eventfilter=Event: Confbridge
-EOF
 
 chkconfig asterisk off
 
