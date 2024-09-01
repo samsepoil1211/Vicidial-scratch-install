@@ -21,7 +21,7 @@ yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-d
 yum in -y php-imap php-ldap php-mysqli php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick 
 sleep 3
 yum in -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox sendmail lame-devel htop iftop perl-File-Which
-yum in -y php-opcache libss7 mariadb-devel libss7* libopen* 
+yum in -y php-opcache libss7 mariadb-devel libss7* libopen* initscripts
 yum copr enable irontec/sngrep -y
 dnf install sngrep -y
 
@@ -223,6 +223,8 @@ yum in newt* -y
 ## sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.4.0+3.4.0/linux/drivers/dahdi/wctc4xxp/base.c
 ## sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
 
+ExecStart=/usr/sbin/dahdi_cfg -vv
+
 make clean
 make
 make install
@@ -240,6 +242,10 @@ cp /etc/dahdi/system.conf.sample /etc/dahdi/system.conf
 modprobe dahdi
 modprobe dahdi_dummy
 /usr/sbin/dahdi_cfg -vvvvvvvvvvvvv
+
+systemctl enable dahdi
+service dahdi start
+service dahdi status
 
 read -p 'Press Enter to continue: '
 
