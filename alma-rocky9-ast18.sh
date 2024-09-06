@@ -832,7 +832,7 @@ systemctl enable firewalld
 chmod -R 777 /var/spool/asterisk/monitorDONE
 chown -R apache:apache /var/spool/asterisk/monitorDONE
 
-cp /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
+mv /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
 sed -i s/DOMAINNAME/"$DOMAINNAME"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
 sed -i s/DOMAINNAME/"$DOMAINNAME"/g /home/viciportal-ssl.conf
 
