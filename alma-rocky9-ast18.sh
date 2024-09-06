@@ -660,12 +660,9 @@ chmod +x /usr/bin/aggregate
 mv /home/VB-firewall /usr/bin/
 chmod +x /usr/bin/VB-firewall
 
-cp /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
-sed -i s/DOMAINNAME/"$hostname"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
-sed -i s/DOMAINNAME/"$hostname"/g /home/viciportal-ssl.conf
 
 ## mv -f /root/defaults.inc.php /var/www/vhosts/dynportal/inc/defaults.inc.php
-mv -f /home/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf
+## mv -f /home/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf
 
 firewall-offline-cmd --add-port=446/tcp --zone=public
 
@@ -834,6 +831,10 @@ systemctl enable firewalld
 
 chmod -R 777 /var/spool/asterisk/monitorDONE
 chown -R apache:apache /var/spool/asterisk/monitorDONE
+
+cp /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
+sed -i s/DOMAINNAME/"$DOMAINNAME"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
+sed -i s/DOMAINNAME/"$DOMAINNAME"/g /home/viciportal-ssl.conf
 
 read -p 'Press Enter to Reboot: '
 
