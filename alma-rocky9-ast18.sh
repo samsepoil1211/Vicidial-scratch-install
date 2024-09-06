@@ -659,6 +659,7 @@ chmod +x /usr/bin/aggregate
 mv /home/VB-firewall /usr/bin/
 chmod +x /usr/bin/VB-firewall
 
+cp /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
 sed -i s/DOMAINNAME/"$hostname"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
 sed -i s/DOMAINNAME/"$hostname"/g /home/viciportal-ssl.conf
 
