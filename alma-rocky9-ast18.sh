@@ -270,7 +270,7 @@ make shared_library && sudo make install
 ldconfig
 
 # cd /usr/src/asterisk/asterisk-18.18.1/
-cd /usr/src/asterisk/asterisk-18.21.0/
+cd /usr/src/asterisk/asterisk-18.21.0-vici/
 ## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/amd_stats-18.patch
 ## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/iax_peer_status-18.patch
 ## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/sip_peer_status-18.patch
