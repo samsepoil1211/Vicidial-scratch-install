@@ -1,5 +1,6 @@
 For those of you who don't know who I am, I am carpenox from the ViciDial forums and as most people can confirm, I help out of the goodness of my heart to our community. I want us all to succeed together! With that being said, If my knowledge base or my github has helped you or your business, please feel free to donate to help me keep the help going.
 
+# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email info@cyburdial.com for more info.
 
 # www.dialer.one for our full knowledge base
 
@@ -39,16 +40,10 @@ reboot
 ````
   Reboot Before running this script
 
-# Install VICIDIAL scripts
+This first installer is the one I keep most up to date and use personally for all my clients. it is the one I recommend that you use.
+If you do not install the SSL cert during the initiial install, you have to turn the firewall off before trying to do it after a reboot. Dont forget to turn it back on. Also, by default the firewall will leave port 443 open to the public, so you can login and change the default password. Make sure you remove it from the public zone once your setup is done. Check this article for use of firewalld: https://dialer.one/how-to-use-firewalld-via-command-line/
 
-```
-cd /usr/src/
-git clone https://github.com/carpenox/vicidial-install-scripts.git
-cd vicidial-install-scripts
-```
-
-
-Make sure you update your SSL cert location in /etc/httpd/conf.d/viciportal-ssl.conf
+# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email info@cyburdial.com for more info.
 
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with SSL cert with Asterisk 18
 
