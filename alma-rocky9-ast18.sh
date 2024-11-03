@@ -783,7 +783,7 @@ Skype Live Chat Support: https://join.skype.com/ujkQ7i5lV78O
 EOF
 
 ## Remove debug kernel
-dnf remove kernel-debug -y
+dnf remove kernel-debug* -y
 
 #add rc-local as a service - thx to ras
 tee -a /etc/systemd/system/rc-local.service <<EOF
@@ -807,10 +807,10 @@ none /var/spool/asterisk/monitor tmpfs nodev,nosuid,noexec,nodiratime,size=2G 0 
 EOF
 
 ## FTP fix
-tee -a /etc/ssh/sshd_config << EOF
+##tee -a /etc/ssh/sshd_config << EOF
 #Subsystem      sftp    /usr/libexec/openssh/sftp-server
-Subsystem sftp internal-sftp
-EOF
+##Subsystem sftp internal-sftp
+##EOF
 
 systemctl daemon-reload
 sudo systemctl enable rc-local.service
