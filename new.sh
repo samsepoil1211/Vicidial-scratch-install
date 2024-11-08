@@ -13,6 +13,9 @@ prompt() {
 
 echo "Getting Machine info"
 echo "**************************************************************************"
+prompt hostname "Enter the hostname:" "$hostname"
+read
+hostnamectl set-hostname $hostname
 # Retrieve the Hostname
 hostname=$(hostname | awk '{print $1}')
 echo "Hostname\t: $hostname"
@@ -22,9 +25,6 @@ echo "IP Address\t: $ip_address"
 echo "**************************************************************************"
 echo "Enter to continue..."
 read
-prompt hostname "Enter the hostname:" "$hostname"
-read
-hostnamectl set-hostname $hostname
 prompt EMAIL "Enter the admin email address:"
 echo "Admin Email: $EMAIL"
 echo "Enter to continue..."
@@ -241,8 +241,6 @@ wget https://cybur-dial.com/dahdi-9.4-fix.zip
 unzip dahdi-9.4-fix.zip
 yum in newt* -y
 
-## sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.4.0+3.4.0/linux/drivers/dahdi/wctc4xxp/base.c
-## sudo sed -i 's|<linux/pci-aspm.h>|<linux/pci.h>|g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/include/dahdi/kernel.h
 
 ##ExecStart=/usr/sbin/dahdi_cfg -vv
 
@@ -276,7 +274,6 @@ echo 'Continuing...'
 mkdir /usr/src/asterisk
 cd /usr/src/asterisk
 wget https://downloads.asterisk.org/pub/telephony/libpri/libpri-1.6.1.tar.gz
-# wget https://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-18.18.1.tar.gz
 wget https://download.vicidial.com/required-apps/asterisk-18.21.0-vici.tar.gz
 tar -xvzf asterisk-18.21.0-vici.tar.gz
 tar -xvzf libpri-*
@@ -291,23 +288,6 @@ ldconfig
 
 # cd /usr/src/asterisk/asterisk-18.18.1/
 cd /usr/src/asterisk/asterisk-18.21.0-vici/
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/amd_stats-18.patch
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/iax_peer_status-18.patch
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/sip_peer_status-18.patch
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/timeout_reset_dial_app-18.patch
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/timeout_reset_dial_core-18.patch
-## cd apps/
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/enter.h
-## wget http://download.vicidial.com/asterisk-patches/Asterisk-18/leave.h
-## yes | cp -rf enter.h.1 enter.h
-## yes | cp -rf leave.h.1 leave.h
-
-## cd /usr/src/asterisk/asterisk-18.18.1/
-## patch < amd_stats-18.patch apps/app_amd.c
-## patch < iax_peer_status-18.patch channels/chan_iax2.c
-## patch < sip_peer_status-18.patch channels/chan_sip.c
-## patch < timeout_reset_dial_app-18.patch apps/app_dial.c
-## patch < timeout_reset_dial_core-18.patch main/dial.c
 
 yum in libuuid-devel libxml2-devel -y
 
@@ -442,10 +422,9 @@ ExpectedDBSchema => 1720
 ASTGUI
 
 echo "Replace IP address in Default"
-echo "%%%%%%%%%Please Enter This Server IP ADD%%%%%%%%%%%%"
-VARserver_ip => $ip_address
-read serveripadd
-sed -i s/SERVERIP/"$serveripadd"/g /etc/astguiclient.conf
+#echo "%%%%%%%%%Please Enter This Server IP ADD%%%%%%%%%%%%"
+#read serveripadd
+sed -i s/SERVERIP/"$ip_address"/g /etc/astguiclient.conf
 
 echo "Install VICIDIAL"
 perl install.pl --no-prompt --copy_sample_conf_files=Y
