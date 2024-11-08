@@ -644,6 +644,7 @@ systemctl start rc-local
 ### Install cockpit
 yum -y install cockpit cockpit-storaged cockpit-navigator
 sed -i s/root/"#root"/g /etc/cockpit/disallowed-users
+systemctl enable cockpit.socket
 
 ##Install CyburPhone
 cd /var/www/html
