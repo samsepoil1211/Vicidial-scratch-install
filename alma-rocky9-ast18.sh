@@ -2,30 +2,6 @@
 
 echo "Vicidial installation AlmaLinux/RockyLinux with CyburPhone and Dynamic portal"
 
-# Function to prompt user for input
-prompt() {
-    local varname=$1
-    local prompt_text=$2
-    local default_value=$3
-    read -p "$prompt_text [$default_value]: " input
-    export $varname="${input:-$default_value}"
-}
-
-echo "Getting Machine info"
-echo "**************************************************************************"
-# Retrieve the Hostname
-hostname=$(hostname | awk '{print $1}')
-echo "Hostname\t: $hostname"
-# Retrieve the IP address
-ip_address=$(hostname -I | awk '{print $1}')
-echo "IP Address\t: $ip_address"
-echo "**************************************************************************"
-echo "Enter to continue..."
-read
-prompt EMAIL "Enter the admin email address:"
-echo "Admin Email: $EMAIL"
-echo "Enter to continue..."
-read
 
 export LC_ALL=C
 
@@ -352,7 +328,7 @@ SET GLOBAL connect_timeout=60;
 use asterisk;
 \. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 \. /usr/src/astguiclient/trunk/extras/first_server_install.sql
-update servers set asterisk_version='16.30.0';
+update servers set asterisk_version='18.21.1-vici';
 quit
 MYSQLCREOF
 
@@ -404,7 +380,7 @@ VARDB_port => 3306
 VARactive_keepalives => 12345689EC
 
 # Asterisk version VICIDIAL is installed for
-VARasterisk_version => 16.X
+VARasterisk_version => 18.X
 
 # FTP recording archive connection information
 VARFTP_host => 10.0.0.4
@@ -431,7 +407,7 @@ VARfastagi_log_checkfordead => 30
 VARfastagi_log_checkforwait => 60
 
 # Expected DB Schema version for this install
-ExpectedDBSchema => 1645
+ExpectedDBSchema => 1720
 ASTGUI
 
 echo "Replace IP address in Default"
