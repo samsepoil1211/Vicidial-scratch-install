@@ -29,18 +29,6 @@ dnf --enablerepo=crb install libsrtp-devel -y
 dnf config-manager --set-enabled crb
 yum install libsrtp-devel -y
 
-tee -a /etc/httpd/conf/httpd.conf <<EOF
-
-CustomLog /dev/null common
-
-Alias /RECORDINGS/MP3 "/var/spool/asterisk/monitorDONE/MP3/"
-
-<Directory "/var/spool/asterisk/monitorDONE/MP3/">
-    Options Indexes MultiViews
-    AllowOverride None
-    Require all granted
-</Directory>
-EOF
 
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
