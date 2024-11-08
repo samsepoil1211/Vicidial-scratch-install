@@ -24,10 +24,6 @@ ip_address=$(hostname -I | awk '{print $1}')
 echo "IP Address\t: $ip_address"
 echo "**************************************************************************"
 echo "Enter to continue..."
-read
-prompt EMAIL "Enter the admin email address:"
-echo "Admin Email: $EMAIL"
-echo "Enter to continue..."
 read	
 
 export LC_ALL=C
