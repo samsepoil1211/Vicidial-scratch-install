@@ -876,6 +876,10 @@ chown -R apache:apache /var/spool/asterisk/monitorDONE
 
 mysql -e "use asterisk; update system_settings set webphone_url='https://$hostname/CyburPhone/cyburphone.php', sounds_web_server='https://$hostname';"
 
+cp /etc/letsencrypt/live/$hostname/fullchain.pem /etc/cockpit/ws-certs.d/wildcart.$hostname.cert
+cp /etc/letsencrypt/live/$hostname/privkey.pem /etc/cockpit/ws-certs.d/wildcart.$hostname.key
+systemctl restart cockpit.socket
+
 read -p 'Press Enter to Reboot: '
 
 echo "Restarting AlmaLinux"
