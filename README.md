@@ -42,6 +42,16 @@ If you do not install the SSL cert during the initiial install, you have to turn
 # AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email info@cyburdial.com for more info.
 
 # Follow this article for post install: https://dialer.one/how-to-use-the-full-functionality-of-the-vicidial-installer-by-carpenox/
+
+# NEW main installer to use for Alma/Rocky 9 w/ Dynamic portal, WebPhone, SSL cert & Asterisk 18
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x main-installer.sh
+./main-installer.sh
+```
+
+
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with SSL cert with Asterisk 18
 
 ```
