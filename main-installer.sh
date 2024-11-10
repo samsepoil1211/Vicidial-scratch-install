@@ -15,6 +15,7 @@ echo "Getting Machine info"
 echo "**************************************************************************"
 prompt hostname "Enter the hostname:" "$hostname"
 read
+echo "Press Enter to continue"
 hostnamectl set-hostname $hostname
 # Retrieve the Hostname
 hostname=$(hostname | awk '{print $1}')
