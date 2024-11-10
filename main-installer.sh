@@ -818,6 +818,16 @@ EOF
 ##Subsystem sftp internal-sftp
 ##EOF
 
+##confbridge fix
+cd /usr/src/vicidial-install-scripts/
+yes | cp -rf extensions.conf /etc/asterisk/extensions.conf
+mv confbridge-vicidial.conf /etc/asterisk/
+
+tee -a /etc/asterisk/confbridge.conf <<EOF
+
+#include confbridge-vicidial.conf
+EOF
+
 systemctl daemon-reload
 sudo systemctl enable rc-local.service
 sudo systemctl start rc-local.service
