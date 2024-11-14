@@ -635,7 +635,7 @@ cd /var/www/vhosts/dynportal/
 unzip dynportal.zip
 chmod -R 755 *
 chown -R apache:apache *
-cd etc/httpd/conf.d/
+cd /etc/httpd/conf.d/
 mv viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
 unzip -o firewall.zip
