@@ -718,7 +718,7 @@ mv /home/dynportal.zip /var/www/vhosts/dynportal/
 mv /home/firewall.zip /etc/firewalld/
 cd /var/www/vhosts/dynportal/
 unzip dynportal.zip
-cd etc/httpd/conf.d/
+cd /etc/httpd/conf.d/
 mv viciportal-ssl.conf viciportal.conf /etc/httpd/conf.d/
 cd /etc/firewalld/
 unzip -o firewall.zip
