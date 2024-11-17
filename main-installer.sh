@@ -11,7 +11,7 @@ prompt() {
     export $varname="${input:-$default_value}"
 }
 
-echo "Getting Machine info"
+echo "Getting Machine info - No hostname? Enter the IP Address"
 echo "**************************************************************************"
 prompt hostname "Enter the hostname:" "$hostname"
 echo "Press Enter to continue"
