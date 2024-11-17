@@ -873,7 +873,7 @@ chown -R apache:apache /var/spool/asterisk/monitorDONE
 ## sed -i s/DOMAINNAME/"$DOMAINNAME"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
 ## sed -i s/DOMAINNAME/"$DOMAINNAME"/g /home/viciportal-ssl.conf
 
-mysql -e "use asterisk; update system_settings set webphone_url='https://$hostname/CyburPhone/cyburphone.php', sounds_web_server='https://$hostname';"
+mysql -e "use asterisk; update system_settings set active_voicemail_server='$ip_address', webphone_url='https://$hostname/CyburPhone/cyburphone.php', sounds_web_server='https://$hostname';"
 
 cp /etc/letsencrypt/live/$hostname/fullchain.pem /etc/cockpit/ws-certs.d/wildcart.$hostname.cert
 cp /etc/letsencrypt/live/$hostname/privkey.pem /etc/cockpit/ws-certs.d/wildcart.$hostname.key
