@@ -51,6 +51,13 @@ chmod +x main-installer.sh
 ./main-installer.sh
 ```
 
+# NEW Installer for add on dialers on Alma or Rocky 9
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x addon-dialer-alma9.sh
+./addon-dialer-alma9.sh
+```
 
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with SSL cert with Asterisk 18
 
