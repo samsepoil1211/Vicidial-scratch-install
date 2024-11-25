@@ -143,6 +143,7 @@ chmod +x cluster-db.sh
 ```
 cd /usr/src/vicidial-install-scripts
 chmod +x add-dialer-to-DB.sh
+./add-dialer-to-DB.sh
 ```
 
 ## Step 2: Link Dialers to the database - run this on each dialer
@@ -150,6 +151,7 @@ chmod +x add-dialer-to-DB.sh
 ```
 cd /usr/src/vicidial-install-scripts
 chmod +x run-on-dialer-servers-cluster.sh
+./run-on-dialer-servers-cluster.s
 ```
 
 ## Repeat steps 1 and 2 in order as you do each server
