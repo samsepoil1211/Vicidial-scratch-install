@@ -21,7 +21,7 @@ read DIALER5
 /usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=192.168.1.6 --server_ip=$DIALER5
 echo "Enter dialer 6 IP:"
 read DIALER6
-/usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=192.168.1.5 --server_ip=$DIALER6
+/usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=192.168.1.7 --server_ip=$DIALER6
 
 cd /usr/src/astguiclient/trunk
 svn up
