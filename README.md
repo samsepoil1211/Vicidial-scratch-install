@@ -86,6 +86,8 @@ chmod +x standard-db.sh
 ./standard-db.sh
 ```
 
+# See tools section at the bottom for cluster db with 7 servers, 150 users and phones ready to go
+
 # Alma/Rocky 9 Installer with Dynamic portal and CyburPhone with SSL cert with Asterisk 18 for CONTABO ONLY
 
 ```
@@ -117,11 +119,38 @@ chmod +x alma-rocky-centos8-ast16.sh
 ```
 
 # Execute Alma/Rocky 8 Linux Vicidial Install - Ast 18
+
 ```
 cd /usr/src/vicidial-install-scripts
 chmod +x alma-rocky-centos-8-ast18.sh
 ./alma-rocky-centos-8-ast18.sh
 ```
+
+## USEFUL TOOLS ##
+
+# Cluster Database with 7 servers ready with 150 users and phones
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x cluster-db.sh
+./cluster-db.sh
+```
+
+# Step 1: Add dialers into database POST install - This is to be used to add dialer servers into a cluster with conferences and confbridges
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x add-dialer-to-DB.sh
+```
+
+# Step 2: Link Dialers to the database - run this on each dialer
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x run-on-dialer-servers-cluster.sh
+```
+
+# Repeat steps 1 and 2 in order as you do each server
 
 # Install Webphone and SSL cert for VICIDIAL
 # DO THIS IF YOU HAVE PUBLIC DOMAIN WITH PUBLIC IP ONLY
