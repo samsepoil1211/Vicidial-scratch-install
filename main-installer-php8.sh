@@ -41,7 +41,7 @@ dnf module enable mariadb:10.5 -y
 
 dnf -y install dnf-plugins-core
 
-yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysqli php-ldap php-zip php-fileinfo php-opcache -y 
+yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysqli php-ldap php-zip php-fileinfo php-opcache
 sleep 2
 yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-devel readline-devel php-mbstring php-mcrypt 
 sleep 2
@@ -51,7 +51,7 @@ yum in -y newt-devel libxml2-devel kernel-devel sqlite-devel libuuid-devel sox s
 sleep 2
 yum in -y php-opcache libss7 mariadb-devel libss7* libopen*
 sleep 1
-yum in -y initscripts
+yum in -y initscripts python3-pip libxcrypt-compat
 yum copr enable irontec/sngrep -y
 dnf install sngrep -y
 
