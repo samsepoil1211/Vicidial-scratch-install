@@ -41,7 +41,7 @@ dnf module enable mariadb:10.5 -y
 
 dnf -y install dnf-plugins-core
 
-yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-opcache -y 
+yum install -y php screen php-mcrypt subversion php-cli php-gd php-curl php-mysqli php-ldap php-zip php-fileinfo php-opcache -y 
 sleep 2
 yum in -y wget unzip make patch gcc gcc-c++ subversion php php-devel php-gd gd-devel readline-devel php-mbstring php-mcrypt 
 sleep 2
