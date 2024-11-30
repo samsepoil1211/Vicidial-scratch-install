@@ -26,6 +26,8 @@ read DIALER6
 cd /usr/src/astguiclient/trunk
 svn up
 perl install.pl --no-prompt --db-server=$DB
+mysql -p -f --database=asterisk < /usr/src/astguiclient/trunk/extras/upgrade_2.14.sql
+echo "Press Enter"
 echo "The default password for the 6666 admin user is CyburDial2025"
 echo "The default password for the 6666 admin user is CyburDial2025"
 echo "The default password for the 6666 admin user is CyburDial2025"
