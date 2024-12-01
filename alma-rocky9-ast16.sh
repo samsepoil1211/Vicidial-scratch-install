@@ -202,7 +202,7 @@ cd /usr/src/
 mkdir dahdi-linux-complete-3.4.0+3.4.0
 ## tar -xzvf dahdi-linux-complete-3.4.0+3.4.0.tar.gz
 cd dahdi-linux-complete-3.4.0+3.4.0
-wget https://cybur-dial.com/dahdi-9.4-fix.zip
+wget https://cybur-dial.com/dahdi-9.5-fix.zip
 unzip dahdi-9.4-fix.zip
 yum in newt* -y
 
