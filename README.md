@@ -51,6 +51,14 @@ chmod +x main-installer.sh
 ./main-installer.sh
 ```
 
+# Above installer but with PHP8 instead of PHP7 (Beta Release)
+
+```
+cd /usr/src/vicidial-install-scripts
+chmod +x main-installer-php8.sh
+./main-installer-php8.sh
+```
+
 # NEW Installer for add on dialers on Alma or Rocky 9
 
 ```
