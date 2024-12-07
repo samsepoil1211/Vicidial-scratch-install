@@ -23,7 +23,8 @@ yum update -y
 yum -y install epel-release
 yum update -y
 yum install git -y
-yum install -y kernel*
+yum install kernel* --exclude=kernel-debug* -y
+
 
 #Disable SELINUX
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config    
