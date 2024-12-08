@@ -206,7 +206,7 @@ mkdir dahdi-linux-complete-3.4.0+3.4.0
 ## tar -xzvf dahdi-linux-complete-3.4.0+3.4.0.tar.gz
 cd dahdi-linux-complete-3.4.0+3.4.0
 wget https://cybur-dial.com/dahdi-9.5-fix.zip
-unzip dahdi-9.4-fix.zip
+unzip dahdi-9.5-fix.zip
 yum in newt* -y
 
 ## sudo sed -i 's|(netdev, \&wc->napi, \&wctc4xxp_poll, 64);|(netdev, \&wc->napi, \&wctc4xxp_poll);|g' /usr/src/dahdi-linux-complete-3.4.0+3.4.0/linux/drivers/dahdi/wctc4xxp/base.c
