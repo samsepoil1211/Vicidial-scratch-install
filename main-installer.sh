@@ -868,8 +868,8 @@ service firewalld stop
 service firewalld start
 systemctl enable firewalld
 
-chmod -R 777 /var/spool/asterisk/monitorDONE
-chown -R apache:apache /var/spool/asterisk/monitorDONE
+chmod -R 777 /var/spool/asterisk/
+chown -R apache:apache /var/spool/asterisk/
 
 ## mv /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
 ## sed -i s/DOMAINNAME/"$DOMAINNAME"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
