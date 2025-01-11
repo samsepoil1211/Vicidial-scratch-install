@@ -458,7 +458,7 @@ cat <<CRONTAB>> /root/crontab-file
 0 2 * * * /usr/share/astguiclient/ADMIN_backup.pl
 
 ###certbot renew
-@monthly /usr/src/certbot.sh
+@monthly /usr/src/vicidial-install-scripts/certbot.sh
 
 ### recording mixing/compressing/ftping scripts
 #0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57 * * * * /usr/share/astguiclient/AST_CRON_audio_1_move_mix.pl
@@ -867,7 +867,7 @@ service firewalld start
 systemctl enable firewalld
 
 firewall-cmd --add-service=http --permanent --zone=trusted
-
+chmod +x /usr/src/vicidial-install-scripts/certbot.sh
 
 chmod -R 777 /var/spool/asterisk/
 chown -R apache:apache /var/spool/asterisk/
