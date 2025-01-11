@@ -53,7 +53,7 @@ yum in -y php-opcache libss7 mariadb-devel libss7* libopen*
 sleep 1
 yum in -y initscripts
 yum copr enable irontec/sngrep -y
-dnf install sngrep -y
+dnf install sngrep bind-utils -y
 
 
 dnf --enablerepo=crb install libsrtp-devel -y
@@ -458,10 +458,7 @@ cat <<CRONTAB>> /root/crontab-file
 0 2 * * * /usr/share/astguiclient/ADMIN_backup.pl
 
 ###certbot renew
-51 23 1 * * /usr/bin/systemctl stop firewalld
-52 23 1 * * /usr/bin/certbot renew
-53 23 1 * * /usr/bin/systemctl start firewalld
-54 23 1 * * /usr/bin/systemctl restart httpd
+@monthly /usr/src/certbot.sh
 
 ### recording mixing/compressing/ftping scripts
 #0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57 * * * * /usr/share/astguiclient/AST_CRON_audio_1_move_mix.pl
@@ -868,6 +865,9 @@ service firewalld stop
 ./vicidial-enable-webrtc.sh
 service firewalld start
 systemctl enable firewalld
+
+firewall-cmd --add-service=http --permanent --zone=trusted
+
 
 chmod -R 777 /var/spool/asterisk/
 chown -R apache:apache /var/spool/asterisk/
