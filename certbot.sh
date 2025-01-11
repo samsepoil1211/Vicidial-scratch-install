@@ -18,4 +18,6 @@ done
 # Reload firewalld to apply the changes
 firewall-cmd --reload
 
+service firewalld stop
 certbot renew
+service firewalld start
