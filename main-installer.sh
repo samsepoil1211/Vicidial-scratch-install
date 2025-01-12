@@ -55,6 +55,7 @@ yum in -y initscripts pv
 yum copr enable irontec/sngrep -y
 dnf install sngrep bind-utils -y
 
+sudo yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r)
 
 dnf --enablerepo=crb install libsrtp-devel -y
 dnf config-manager --set-enabled crb
