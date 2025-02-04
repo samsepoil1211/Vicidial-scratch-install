@@ -472,7 +472,7 @@ cat <<CRONTAB>> /root/crontab-file
 #2,5,8,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59 * * * * /usr/share/astguiclient/AST_CRON_audio_3_ftp.pl --MP3
 
 ### keepalive script for astguiclient processes
-* * * * * /usr/share/astguiclient/ADMIN_keepalive_ALL.pl --cu3way
+* * * * * /usr/share/astguiclient/ADMIN_keepalive_ALL.pl
 
 ### kill Hangup script for Asterisk updaters
 * * * * * /usr/share/astguiclient/AST_manager_kill_hung_congested.pl
@@ -481,7 +481,7 @@ cat <<CRONTAB>> /root/crontab-file
 * * * * * /usr/share/astguiclient/AST_vm_update.pl
 
 ### updater for conference validator
-* * * * * /usr/share/astguiclient/AST_conf_update.pl
+#* * * * * /usr/share/astguiclient/AST_conf_update.pl
 
 ### flush queue DB table every hour for entries older than 1 hour
 11 * * * * /usr/share/astguiclient/AST_flush_DBqueue.pl -q
