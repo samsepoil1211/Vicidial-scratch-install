@@ -1,4 +1,4 @@
-#!/bin/bash
+vi#!/bin/bash
 
 # Function to remove existing PHP packages
 remove_php() {
@@ -86,5 +86,6 @@ case $choice in
         exit 1
         ;;
 esac
-
+service httpd restart
+service apache2 restart
 echo "PHP installation completed."
