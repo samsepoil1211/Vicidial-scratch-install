@@ -567,6 +567,24 @@ CRONTAB
 crontab /root/crontab-file
 crontab -l
 
+#Asterisk service
+tee -a /etc/systemd/system/asterisk.service <<EOF
+
+[Unit]
+Description=Asterisk PBX
+Wants=nss-lookup.target
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+PIDFile=/run/asterisk/asterisk.pid
+ExecStart=/usr/sbin/asterisk -fn
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=basic.target
+Also=systemd-networkd-wait-online.service
+EOF
 #Install rc.local
 
 sudo sed -i 's|exit 0|### exit 0|g' /etc/rc.d/rc.local
