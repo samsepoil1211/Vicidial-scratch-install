@@ -160,7 +160,7 @@ chmod +x add-dialer-to-DB.sh
 ```
 cd /usr/src/vicidial-install-scripts
 chmod +x run-on-dialer-servers-cluster.sh
-./run-on-dialer-servers-cluster.s
+./run-on-dialer-servers-cluster.sh
 ```
 
 ## Repeat steps 1 and 2 in order as you do each server
