@@ -843,7 +843,7 @@ EOF
 ##confbridge fix
 cd /usr/src/vicidial-install-scripts/
 yes | cp -rf extensions.conf /etc/asterisk/extensions.conf
-mv confbridge-vicidial.conf /etc/asterisk/
+cp -rf confbridge-vicidial.conf /etc/asterisk/
 
 tee -a /etc/asterisk/confbridge.conf <<EOF
 
