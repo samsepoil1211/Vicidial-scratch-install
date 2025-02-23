@@ -5,3 +5,5 @@ perl /usr/src/astguiclient/trunk/install.pl --DB_server=$DB --no-prompt
 asterisk -rx 'core restart now'
 sleep 2
 /usr/share/astguiclient/ADMIN_keepalive_ALL.pl
+sleep 5
+perl /usr/src/astguiclient/trunk/install.pl --no-prompt
