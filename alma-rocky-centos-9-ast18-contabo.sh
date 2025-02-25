@@ -772,7 +772,7 @@ Skype Live Chat Support: https://join.skype.com/ujkQ7i5lV78O
 EOF
 
 #add rc-local as a service - thx to ras
-tee -a /etc/systemd/system/vicidial.service <<EOF
+tee -a /etc/systemd/system/rc-local.service <<EOF
 [Unit]
 Description=/etc/rc.local Compatibility
 
