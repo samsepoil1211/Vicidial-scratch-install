@@ -15,6 +15,11 @@ For those of you who don't know who I am, I am carpenox from the ViciDial forums
 ## Copy & Paste the part blow:
 
 ```
+# Install english language pack
+dnf install -y glibc-langpack-en
+
+# Configure new locale. This basically just edits /etc/locale.conf
+localectl set-locale en_US.UTF-8
 
 timedatectl set-timezone America/New_York
 
