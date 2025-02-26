@@ -432,6 +432,9 @@ perl install.pl --no-prompt
 
 #Install Crontab
 cat <<CRONTAB>> /root/crontab-file
+##asterisk start fix
+@reboot sleep 10;/usr/share/astguiclient/start_asterisk_boot.pl
+
 
 ###Audio Sync hourly
 * 1 * * * /usr/share/astguiclient/ADMIN_audio_store_sync.pl --upload --quiet
