@@ -888,6 +888,7 @@ service firewalld stop
 service firewalld start
 systemctl enable firewalld
 
+firewall-cmd --add-ports=10000-20000/udp --permanent
 firewall-cmd --add-service=http --permanent --zone=trusted
 chmod +x /usr/src/vicidial-install-scripts/certbot.sh
 
