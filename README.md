@@ -1,12 +1,7 @@
-For those of you who don't know who I am, I am carpenox from the ViciDial forums and as most people can confirm, I help out of the goodness of my heart to our community. I want us all to succeed together! With that being said, If my knowledge base or my github has helped you or your business, please feel free to donate to help me keep the help going.
+Hi, I’m Debjit — a developer at Beltalk Technology and a cybersecurity engineer.
+I contribute to the ViciDial community because I genuinely want to see everyone grow and succeed. If any of my work — whether through the forums, GitHub, or direct help — has made a difference for you or your business, feel free to support my efforts. Your support helps me continue sharing tools, fixes, and solutions with the community. Let’s build a stronger ecosystem together!
 
-# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email info@cyburdial.com for more info.
-
-# www.dialer.one for our full knowledge base
-
-# Need help? Hit me up on Skype: live:carpenox_3
-# Have I helped you? Please feel free to donate here: https://www.paypal.me/TheDialerOne
-
+# Need help? hit me on my whatsapp : +91 9477233566
 
 # VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
 # Centos, Rocky and AlmaLinux Vicidial Install pre_requisites 
@@ -35,7 +30,7 @@ yum install kernel* --exclude=kernel-debug* -y
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config    
 
 cd /usr/src/
-git clone https://github.com/carpenox/vicidial-install-scripts.git
+git clone https://github.com/samsepoil1211/vicidial-scratch-install
 
 reboot
 
@@ -43,12 +38,7 @@ reboot
   
 
 This first installer is the one I keep most up to date and use personally for all my clients. it is the one I recommend that you use.
-If you do not install the SSL cert during the initiial install, you have to turn the firewall off before trying to do it after a reboot. Dont forget to turn it back on. Also, by default the firewall will leave port 443 open to the public, so you can login and change the default password. Make sure you remove it from the public zone once your setup is done. Check this article for use of firewalld: https://dialer.one/index.php/how-to-use-firewalld-via-command-line/
-
-# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email info@cyburdial.com for more info.
-
-# Follow this article for post install: https://dialer.one/index.php/how-to-use-the-full-functionality-of-the-vicidial-installer-by-carpenox/
-
+If you do not install the SSL cert during the initiial install, you have to turn the firewall off before trying to do it after a reboot. Dont forget to turn it back on. Also, by default the firewall will leave port 443 open to the public, so you can login and change the default password. Make sure you remove it from the public zone once your setup is done.
 # NEW main installer to use for Alma/Rocky 9 w/ Dynamic portal, WebPhone, SSL cert & Asterisk 18 with Confbridges
 
 ```
